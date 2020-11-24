@@ -23,7 +23,7 @@ const initialState: TodoState = {
             {
                 seq: 1,
                 content: "밥 먹기",
-                isCompleted: true,
+                isCompleted: false,
             },
             {
                 seq: 2,
@@ -43,7 +43,7 @@ export const slice = createSlice({
         addTodo: (state, action: PayloadAction<Todo>) => {
             state.current.data = [...state.current.data, (action.payload)];
         },
-        completeTodo: (state, action: PayloadAction<number>) => {
+        toggleTodo: (state, action: PayloadAction<number>) => {
             state.current.data = state.current.data.map(({ content, seq, isCompleted }) => {
                 if (seq === action.payload) {
                     return { seq, content, isCompleted: !isCompleted };
@@ -54,7 +54,7 @@ export const slice = createSlice({
     }
 })
 
-export const { addTodo, completeTodo } = slice.actions;
+export const { addTodo, toggleTodo } = slice.actions;
 
 export const selectTodoList = (state: RootState) => state.todolist.current.data;
 
