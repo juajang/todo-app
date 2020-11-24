@@ -1,7 +1,14 @@
 import React from "react";
+import TodoList from "./TodoList";
 
-const Todo = () => {
+export const Todo = () => {
   return (
-
+    <main style={{
+      display: 'grid',
+      marginTop: '5rem',
+      placeItems: 'center',
+    }}>
+      <TodoList />
+    </main>
   );
 };
