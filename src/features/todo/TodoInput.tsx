@@ -15,8 +15,8 @@ const TodoInput = () => {
     if (todo.length > 0) {
       dispatch(addTodo(todo));
       setTodo('');
-      e.preventDefault();
     }
+    e.preventDefault();
   };
 
   return (

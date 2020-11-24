@@ -55,10 +55,13 @@ export const slice = createSlice({
                 else return { seq, content, isCompleted };
             })
         },
+        deleteTodo: (state, action: PayloadAction<number>) => {
+            state.current.data = state.current.data.filter(({ seq }) => seq !== action.payload);
+        }
     }
 })
 
-export const { addTodo, toggleTodo } = slice.actions;
+export const { addTodo, toggleTodo, deleteTodo } = slice.actions;
 
 export const selectTodoList = (state: RootState) => state.todolist.current.data;
 
