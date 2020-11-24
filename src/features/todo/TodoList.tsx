@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTodo, selectTodoList } from './todoSlice';
-import 'antd/dist/antd.css';
 import { Checkbox, List } from 'antd';
+import TodoInput from "./TodoInput";
 
 const TodoList = () => {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const TodoList = () => {
 
     return (
       <List
-        header={<h2> TodoList</h2>}
+        header={<TodoInput/>}
         bordered
         dataSource={todoList}
         renderItem={({ seq, content, isCompleted}) =>

@@ -40,8 +40,12 @@ export const slice = createSlice({
     name: "todolist",
     initialState,
     reducers: {
-        addTodo: (state, action: PayloadAction<Todo>) => {
-            state.current.data = [...state.current.data, (action.payload)];
+        addTodo: (state, action: PayloadAction<string>) => {
+            state.current.data = [...state.current.data, {
+                seq: state.current.data.length + 1,
+                content: action.payload,
+                isCompleted: false,
+            }];
         },
         toggleTodo: (state, action: PayloadAction<number>) => {
             state.current.data = state.current.data.map(({ content, seq, isCompleted }) => {
