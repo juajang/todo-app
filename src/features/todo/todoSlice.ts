@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
-interface Todo  {
+export interface Todo  {
     seq: number;
     content: string;
     isCompleted: boolean;
